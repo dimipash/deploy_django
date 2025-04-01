@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-REPO_DIR = BASE_DIR.parent.parent
+REPO_DIR = BASE_DIR.parent
 TEMPLATES_DIR = BASE_DIR / "templates"
 TEMPLATES_DIR.mkdir(parents=True, exist_ok=True)
 
