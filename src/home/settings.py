@@ -8,6 +8,8 @@ REPO_DIR = BASE_DIR.parent
 TEMPLATES_DIR = BASE_DIR / "templates"
 TEMPLATES_DIR.mkdir(parents=True, exist_ok=True)
 
+PROJECT_NAME = config("PROJECT_NAME", default="Unset project name", cast=str)
+
 SECRET_KEY = config("DJANGO_SECRET_KEY", default=get_random_secret_key(), cast=str)
 
 DEBUG = config("DJANGO_DEBUG", default=False, cast=bool)
