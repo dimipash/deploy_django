@@ -1,3 +1,5 @@
 Django==5.2rc1
 python-decouple
 waitress
+dj-database-url
+psycopg[binary]
