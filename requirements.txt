@@ -3,3 +3,4 @@ python-decouple
 waitress
 dj-database-url
 psycopg[binary]
+whitenoise[brotli]
