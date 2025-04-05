@@ -43,6 +43,9 @@ ALLOWED_HOSTS = [".railway.app"]
 
 CSRF_TRUSTED_ORIGINS = ["https://*.railway.app"]
 
+CSRF_COOKIE_SECURE = not DEBUG
+SESSION_COOKIE_SECURE = not DEBUG
+
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
 
