@@ -6,7 +6,7 @@ python manage.py sendtestemail --admins
 python manage.py migrate --no-input
 python manage.py auto_admin
 
-export RUNTIME_PORT=8000
+RUNTIME_PORT=${PORT:-8000}
 
 # add static files to the container on runtime
 # python manage.py collectstatic --no-input
