@@ -49,6 +49,21 @@ SESSION_COOKIE_SECURE = not DEBUG
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
 
+RAILWAY_HOSTS = [
+    "healthcheck.railway.app",
+    ".railway.internal",
+    ".up.railway.app",
+    "plutopicom.railway.internal",
+    "deploy-django.up.railway.app",
+]
+
+for host in RAILWAY_HOSTS:
+    ALLOWED_HOSTS.append(host)
+    for protocol in ["http", "https"]:
+        if host.startswith("."):
+            CSRF_TRUSTED_ORIGINS.append(f"{protocol}://*{host}")
+        else:
+            CSRF_TRUSTED_ORIGINS.append(f"{protocol}://{host}")
 
 # Application definition
 
