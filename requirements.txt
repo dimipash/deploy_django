@@ -4,3 +4,4 @@ waitress
 dj-database-url
 psycopg[binary]
 whitenoise[brotli]
+django-redis
