@@ -46,9 +46,10 @@ RUN pip install -r /tmp/requirements.txt
 # add static files to the container on build
 RUN python manage.py collectstatic --noinput
 
+# Copy the run script and ensure it has Unix line endings
 COPY ./boot/docker-run.sh /opt/docker-run.sh
-
-RUN chmod +x /opt/docker-run.sh
+RUN sed -i 's/\r$//' /opt/docker-run.sh && \
+    chmod +x /opt/docker-run.sh
 
 # Clean up apt cache to reduce image size
 RUN apt-get remove --purge -y \
@@ -56,5 +57,6 @@ RUN apt-get remove --purge -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-CMD ["/opt/docker-run.sh"]
+# Use array form of CMD to properly handle the script execution
+CMD ["/bin/bash", "/opt/docker-run.sh"]
 
